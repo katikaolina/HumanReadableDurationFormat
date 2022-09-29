@@ -7,14 +7,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(makeReadable(121));
+        try {
+            System.out.println(dateCount(-33));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Input must not be smaller than 0");
+        }
 
-        System.out.println(dateCount(3662));
 
+        try {
+            System.out.println(makeReadable(786));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Input must not be smaller than 0");
+        }
     }
 
     public static String dateCount(int input) {
 
+        if (input < 0) {
+            throw new IllegalArgumentException();
+        }
         Map<String, Integer> myMap = new HashMap<>();
         myMap.put("year", 31536000);
         myMap.put("day", 86400);
@@ -26,10 +37,10 @@ public class Main {
 
         if (input == 0) return "now";
 
-        for(String key : myMap.keySet()){
-            if(input >= myMap.get(key)){
+        for (String key : myMap.keySet()) {
+            if (input >= myMap.get(key)) {
                 int temporary = (int) Math.floor(input / myMap.get(key));
-                result+= temporary + " " + key + " ";
+                result += temporary + " " + key + " ";
                 input = input % myMap.get(key);
             }
         }
@@ -39,6 +50,10 @@ public class Main {
 
 
     public static String makeReadable(int input) {
+
+        if (input < 0) {
+            throw new IllegalArgumentException();
+        }
 
         int sec = 1;
         int minute = 60 * sec;
