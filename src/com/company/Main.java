@@ -1,3 +1,8 @@
+package com.company;
+//https://www.codewars.com/kata/human-readable-duration-format
+
+// Two solutions: one with HashMap and one with if
+
 
 
 import java.util.HashMap;
@@ -8,20 +13,20 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            System.out.println(dateCount(-33));
+            System.out.println(makeReadableWithHashMap(11200));
         } catch (IllegalArgumentException e) {
             System.out.println("Input must not be smaller than 0");
         }
 
 
         try {
-            System.out.println(makeReadable(786));
+            System.out.println(makeReadableWithIf(786));
         } catch (IllegalArgumentException e) {
             System.out.println("Input must not be smaller than 0");
         }
     }
 
-    public static String dateCount(int input) {
+    public static String makeReadableWithHashMap(int input) {
 
         if (input < 0) {
             throw new IllegalArgumentException();
@@ -49,7 +54,7 @@ public class Main {
     }
 
 
-    public static String makeReadable(int input) {
+    public static String makeReadableWithIf(int input) {
 
         if (input < 0) {
             throw new IllegalArgumentException();
@@ -82,7 +87,7 @@ public class Main {
             result += input / minute + " minute ";
             input = input % minute;
         }
-        result += input + " sec";
+        result += input + " second";
 
         return result;
     }
