@@ -4,7 +4,6 @@ package com.company;
 // Two solutions: one with HashMap and one with if
 
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,11 +19,13 @@ public class Main {
 
 
         try {
-            System.out.println(makeReadableWithIf(786));
+            System.out.println(makeReadableWithIf(352345786));
         } catch (IllegalArgumentException e) {
             System.out.println("Input must not be smaller than 0");
         }
     }
+
+//    Solution with HashMap
 
     public static String makeReadableWithHashMap(int input) {
 
@@ -45,14 +46,14 @@ public class Main {
         for (String key : myMap.keySet()) {
             if (input >= myMap.get(key)) {
                 int temporary = (int) Math.floor(input / myMap.get(key));
-                result += temporary + " " + key + " ";
+                result += (temporary > 1 ? temporary + " " + key + "s " : temporary + " " + key + " ");
                 input = input % myMap.get(key);
             }
         }
-
         return result;
     }
 
+//  Solution with If
 
     public static String makeReadableWithIf(int input) {
 
@@ -71,23 +72,25 @@ public class Main {
             return "now";
         }
 
-        if (input > year) {
-            result += input / year + " year ";
+        if (input > year) {//
+            result += (input / year > 1 ? input / year + " years " : input / year + " year ");
             input = input % year;
         }
+
+
         if (input > day) {
-            result += input / day + " day";
+            result += (input / day > 1 ? input / day + " days " : input / day + " day ");
             input = input % day;
         }
         if (input > hour) {
-            result += input / hour + " hour ";
+            result += (input / hour > 1 ? input / hour + " hours " : input / hour + " hour ");
             input = input % hour;
         }
         if (input > minute) {
-            result += input / minute + " minute ";
+            result += (input / minute > 1 ? input / minute + " minutes " : input / minute + " minute ");
             input = input % minute;
         }
-        result += input + " second";
+        result += (input > 1 ? input + " seconds" : input + " second");
 
         return result;
     }

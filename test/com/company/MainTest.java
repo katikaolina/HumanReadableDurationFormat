@@ -12,17 +12,17 @@ class MainTest {
 
     @Test
     void test_makeReadableWithHashMap_62() {
-        assertEquals("1 minute 2 second ", makeReadableWithHashMap(62));
+        assertEquals("1 minute 2 seconds ", makeReadableWithHashMap(62));
     }
 
     @Test
     void test_makeReadableWithHashMap_3662() {
-        assertEquals("1 hour 1 minute 2 second ", makeReadableWithHashMap(3662));
+        assertEquals("1 hour 1 minute 2 seconds ", makeReadableWithHashMap(3662));
     }
 
     @Test
     void test_makeReadableWithHashMap_11200() {
-        assertEquals("3 hour 6 minute 40 second ", makeReadableWithHashMap(11200));
+        assertEquals("3 hours 6 minutes 40 seconds ", makeReadableWithHashMap(11200));
     }
 
     @Test
@@ -37,17 +37,17 @@ class MainTest {
 
     @Test
     void test_makeReadableWithIf_62() {
-        assertEquals("1 minute 2 second", makeReadableWithIf(62));
+        assertEquals("1 minute 2 seconds", makeReadableWithIf(62));
     }
 
     @Test
     void test_makeReadableWithIf_3662() {
-        assertEquals("1 hour 1 minute 2 second", makeReadableWithIf(3662));
+        assertEquals("1 hour 1 minute 2 seconds", makeReadableWithIf(3662));
     }
 
     @Test
     void test_makeReadableWithIf_11200() {
-        assertEquals("3 hour 6 minute 40 second", makeReadableWithIf(11200));
+        assertEquals("3 hours 6 minutes 40 seconds", makeReadableWithIf(11200));
     }
 
     @Test
